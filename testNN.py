@@ -40,14 +40,13 @@ labels = lb.fit_transform(labels)
 trainX, testX, trainY, testY = train_test_split(data, labels, test_size=0.25)
 
 # создаем модель
-
 model = svm.SVC(kernel='poly')
 model.fit(trainX,trainY.ravel())
 
 
 
 
-# проходим по проверочным изображениям и выводим их с надписями к какому классу относиться объект и с какой вероятностью
+# проходим по проверочным изображениям и выводим их с надписями к какому классу относится объект и с какой вероятностью
 for test_img in TEST_IMAGES:
 	image_test = cv2.imread(test_img)
 	output = image_test.copy()
@@ -57,8 +56,6 @@ for test_img in TEST_IMAGES:
 
 	preds = model.predict(image_test)
 	print(preds)
-
-
 
 	label = lb.classes_[preds]
 
