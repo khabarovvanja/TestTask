@@ -7,10 +7,8 @@ import random
 import cv2
 import os
 
-
 # изображения для проверки модели: 1-Пчела ; 2-Оса ; 3-Оса 4-Пчела
 TEST_IMAGES = ['test.jpg' , 'test2.jpg' , 'test3.jpg' , 'test4.jpg']
-
 
 data = []
 labels = []
@@ -42,9 +40,6 @@ trainX, testX, trainY, testY = train_test_split(data, labels, test_size=0.25)
 # создаем модель
 model = svm.SVC(kernel='poly')
 model.fit(trainX,trainY.ravel())
-
-
-
 
 # проходим по проверочным изображениям и выводим их с надписями к какому классу относится объект и с какой вероятностью
 for test_img in TEST_IMAGES:
